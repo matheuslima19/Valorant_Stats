@@ -1,3 +1,4 @@
+/* Estilização do forms */
 *{
     margin: 0;
     padding: 0;
@@ -10,24 +11,25 @@
     justify-content: center;
     min-height: 92vh;
     /* background: #172031; */
-    background-image: url(/assets/img/background-login.jpg);
+    background-image: url(/assets/img/background-cadastro.jpg);
 }
-.login{
+.cadastro{
     background: #172031;
     border-radius: 10px;
     width: 400px;
     padding: 40px;
+    position: absolute;
 }
-.login h2{
+.cadastro h2{
     margin-bottom: 30px;
     font-size: 30px;
     color: #fff;
     text-align: center;
 }
-.login .box-user{
+.cadastro .box-user{
     position: relative;
 }
-.login .box-user input{
+.cadastro .box-user input{
     width: 100%;
     padding: 10px 0;
     outline: none;
@@ -38,7 +40,7 @@
     font-size: 16px;
     margin-bottom: 30px;
 }
-.login .box-user label{
+.cadastro .box-user label{
     position: absolute;
     top: 0;
     left: 0;
@@ -48,8 +50,8 @@
     pointer-events: none;
     transition: .5s;
 }
-.login .box-user input:focus~label,
-.login .box-user input:valid~label{
+.cadastro .box-user input:focus~label,
+.cadastro .box-user input:valid~label{
     top: -20px;
     left: 0;
     color: #03e9f4;
@@ -159,3 +161,4 @@
         width: 90%;
     }
 }
+/*  */

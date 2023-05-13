@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style/login-style.css">
-    <link rel="stylesheet" href="./assets/style/home-style.css">
+    <link rel="stylesheet" href="./assets/style/cadastro-style.css">
+    <link rel="stylesheet" href="./assets/style/home-style.css" />
     <link rel="icon" href="./assets/img/logotipo.png">
-    <title>Login - Valorant Stats</title>
+    <title>Cadastro - Valorant Stats</title>
 </head>
 <header>
     <nav>
@@ -28,25 +28,34 @@
 </header>
 <body>
     <div class="corpo">
-    <form class="login">
-        <h2>Login</h2>
+    <form class="cadastro">
+        <h2>Cadastro</h2>
         <div class="box-user">
             <input type="text" name="" required>
-            <label>Usuário</label>
+            <label>Insira seu nome:</label>
+        </div>
+        <div class="box-user">
+            <input type="text" name="" required>
+            <label>Insira seu email:</label>
         </div>
         <div class="box-user">
             <input type="password" name="" required>
-            <label>Senha</label>
+            <label>Insira sua senha:</label>
         </div>
-        <div>
-            <a href="#" class="forget">Esqueceu a senha?</a>
+        <div class="box-user">
+            <input type="password" name="" required>
+            <label>Confirme sua senha:</label>
         </div>
-        <a href="#" class="btn">
+        <div class="box-user">
+            <input type="text" name="" required>
+            <label>Insira seu CPF:</label>
+        </div>
+        <a href="#" class="btn" onclick="cadastrar()">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Entrar
+            Cadastrar
         </a>
     </form>
     </div>
