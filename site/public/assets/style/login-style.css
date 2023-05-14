@@ -10,7 +10,7 @@
     justify-content: center;
     min-height: 92vh;
     /* background: #172031; */
-    background-image: url(/assets/img/background-login.jpg);
+    background-image: url(/site/public/assets/img/background-login.jpg);
 }
 .login{
     background: #172031;

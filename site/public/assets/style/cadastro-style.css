@@ -11,7 +11,7 @@
     justify-content: center;
     min-height: 92vh;
     /* background: #172031; */
-    background-image: url(/assets/img/background-cadastro.jpg);
+    background-image: url(/site/public/assets/img/background-cadastro.jpg);
 }
 .cadastro{
     background: #172031;
