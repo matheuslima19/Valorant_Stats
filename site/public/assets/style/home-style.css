@@ -32,6 +32,8 @@ main {
   background: url("/site/public/assets/img/background-home.jpg") no-repeat center center;
   background-size: cover;
   height: 92vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-list {
@@ -112,3 +114,25 @@ main {
 .mobile-menu.active .line3 {
   transform: rotate(45deg) translate(-5px, -7px);
 } */
+
+article{
+  margin: 50px;
+}
+aside{
+  margin: 50px;
+}
+h2{
+  font-size: 56px;
+  font-family: sans-serif;
+}
+span{
+  color: #fff;
+}
+p{
+  max-width: 500px;
+  font-family: sans-serif;
+  color: #fff;
+}
+img{
+  border-radius: 30px;
+}
