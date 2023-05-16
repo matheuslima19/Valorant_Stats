@@ -29,7 +29,7 @@ nav {
 }
 
 main {
-  background: url("/site/public/assets/img/background-home.jpg") no-repeat center center;
+  background: url("background-home.jpg") no-repeat center center;
   background-size: cover;
   height: 92vh;
   display: flex;
@@ -122,7 +122,7 @@ aside{
   margin: 50px;
 }
 h2{
-  font-size: 56px;
+  font-size: 45px;
   font-family: sans-serif;
 }
 span{

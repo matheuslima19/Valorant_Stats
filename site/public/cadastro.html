@@ -12,7 +12,7 @@
 </head>
 <header>
     <nav>
-        <a class="logo" href="./home.html"><img src="./assets/img/logotipo.png" height="80px"></a>
+        <a class="logo" href="index.html"><img src="./assets/img/logotipo.png" height="80px"></a>
         <div class="mobile-menu">
             <div class="line1"></div>
             <div class="line2"></div>
@@ -29,7 +29,7 @@
 </header>
 <body>
     <div class="corpo">
-    <form class="cadastro">
+    <form class="cadastro" method="">
         <h2>Cadastro</h2>
         <div class="box-user">
             <input type="text" id="nome_input" required>
@@ -51,13 +51,14 @@
             <input type="text" id="cpf_input" required>
             <label>Insira seu CPF:</label>
         </div>
-        <a href="#" class="btn" onclick="cadastrar()">
+        <a class="btn" onclick="cadastrar()">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Cadastrar
         </a>
+        
     </form>
     </div>
 </body>
@@ -72,20 +73,9 @@
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var cpfVar = cpf_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "") {
-            alert('Por favor preencha todos os campos!')
-
-            // finalizarAguardar();
-            return false;
-        // }else if(senhaVar != confirmacaoSenhaVar){
-        //     alert('As senhas não coincidem !')
-        }else {
-            setInterval(sumirMensagem, 5000)
-        }
-
+ 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -108,7 +98,7 @@
                 alert('Cadastro realizado com sucesso !!!')
 
                 setTimeout(() => {
-                    window.location = "./login.html";
+                    window.location = "/login.html";
                 }, "2000")
 
                 // limparFormulario();

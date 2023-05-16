@@ -6,16 +6,17 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-create database ValorantStats;
+drop database if exists ValorantStats;
+create database if not exists ValorantStats;
 use ValorantStats;
 
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	cpf CHAR(11)
+	nome VARCHAR(150),
+	email VARCHAR(150),
+	senha VARCHAR(150),
+	cpf VARCHAR(100)
 );
 
 
