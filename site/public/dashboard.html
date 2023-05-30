@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/home-style.css">
+    <link rel="stylesheet" href="./assets/style/dash-style.css">
+    <link rel="icon" href="./assets/img/logotipo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/site/src/controllers/medidaController.js"></script>
+    <title>Estatísticas e Gráficos.</title>
+</head>
+<header>
+    <nav>
+        <a class="logo" href="index.html"><img src="./assets/img/logotipo.png" height="80px"></a>
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="#">Desenvolvedor</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<body>
+    <div class="liga">
+        <img src="./assets/img/americas.png" alt="">
+        <h3>VCT AMERICAS</h3>
+    </div>
+    <div class="container">
+<div class="times">
+    <!-- LOUD -->
+    <div class="card" style="position: relative; height:20vh; width:20vw">
+        <img  class="logos" src="./assets/img/loud.png" alt=""  onclick="obterDadosGrafico('LOUD')" id="LOUD">
+        <canvas id="loudChart"></canvas>
+    </div>
+</div>
+    <!-- FURIA -->
+<div class="times">
+    <div class="card" style="position: relative; height:20vh; width:20vw">
+        <img  class="logos" src="./assets/img/furia.png" alt="" onclick="obterDadosGrafico('FURIA')" id="FURIA">
+        <canvas id="furiaChart"></canvas>
+    </div>
+</div>
+    <!-- MIBR -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/mibr.png" alt="" onclick="obterDadosGrafico('MIBR')" id="MIBR">
+            <canvas id="mibrChart"></canvas>
+        </div>
+    </div>
+    <!-- NRG -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/nrg.png" alt="" onclick="obterDadosGrafico('NRG')" id="NRG">
+            <canvas id="NRGChart"></canvas>
+        </div>
+    </div>
+    <!-- SEN -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/sentinels.png" alt="" onclick="obterDadosGrafico('SEN')" id="SEN">
+            <canvas id="SENChart"></canvas>
+        </div>
+    </div>
+</div>
+
+
+<div class="container2">
+    <!-- C9 -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/c9.png" alt="" onclick="obterDadosGrafico('C9')" id="C9">
+            <canvas id="C9Chart"></canvas>
+        </div>
+    </div>
+    <!-- EG -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/EG.png" alt="" onclick="obterDadosGrafico('EG')" id="EG">
+            <canvas id="EGChart"></canvas>
+        </div>
+    </div>
+    <!-- 100T -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/100T.png" alt="" onclick="obterDadosGrafico('100T')" id="100T">
+            <canvas id="100TChart"></canvas>
+        </div>
+    </div>
+    <!-- LEVIATAN -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/Levi.png" alt="" onclick="obterDadosGrafico('Levi')" id="Levi">
+            <canvas id="LeviChart"></canvas>
+        </div>
+    </div>
+    <!-- KRU -->
+    <div class="times">
+        <div class="card" style="position: relative; height:20vh; width:20vw">
+            <img  class="logos" src="./assets/img/KRU.png" alt="" onclick="obterDadosGrafico('KRU')" id="KRU">
+            <canvas id="KRUChart"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+<footer>
+    <p>Desenvolvido por Matheus Lima - &copy; Copyright</p>
+</footer>
+
+</html>
+
+<script>
+
+let dadosGrafico = [];
+
+
+// function exibirEquipes(idEquipes) {
+//     let todosOsGraficos = document.getElementById("graficos")
+
+//     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+//         // exibindo - ou não - o gráfico
+//         let elementoAtual = document.getElementById(`grafico${i}`)
+//         if (elementoAtual.classList.contains("display-block")) {
+//             elementoAtual.classList.remove("display-block")
+//         }
+//         elementoAtual.classList.add("display-none")
+//     }
+// }
+
+function obterDadosGrafico(nomeTime) {
+
+fetch(`/medidas/ultimas/${nomeTime}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            dadosGrafico.push(resposta)
+            console.log(dadosGrafico[0].Vitorias , dadosGrafico[0].Derrotas)
+            plotarGrafico(resposta, nomeTime);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function plotarGrafico(resposta, nomeTime) {
+console.log('iniciando plotagem do gráfico...');
+
+let labels = [];
+
+if(nomeTime == 'LOUD'){
+    const loud = document.getElementById('loudChart');
+    new Chart(loud, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'FURIA'){
+    const furia = document.getElementById('furiaChart');
+    new Chart(furia, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'MIBR'){
+    const mibr = document.getElementById('mibrChart');
+    new Chart(mibr, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'NRG'){
+    const NRG = document.getElementById('NRGChart');
+    new Chart(NRG, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'SEN'){
+    const SEN = document.getElementById('SENChart');
+    new Chart(SEN, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'C9'){
+    const C9 = document.getElementById('C9Chart');
+    new Chart(C9, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'EG'){
+    const EG = document.getElementById('EGChart');
+    new Chart(EG, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == '100T'){
+    const HT = document.getElementById('100TChart');
+    new Chart(HT, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'Levi'){
+    const Levi = document.getElementById('LeviChart');
+    new Chart(Levi, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}else if(nomeTime == 'KRU'){
+    const KRU = document.getElementById('KRUChart');
+    new Chart(KRU, {
+        type: 'doughnut',
+        data: {
+            labels: ['Vitórias', 'Derrotas'],
+            datasets: [{
+                label: 'Wins/Loses',
+                data: [resposta[0].Vitorias , resposta[0].Derrotas],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+}
+</script>

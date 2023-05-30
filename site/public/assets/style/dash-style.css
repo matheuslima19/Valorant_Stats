@@ -1,0 +1,57 @@
+body{
+    background-image:url(background-dash.jpg);
+    background-attachment: fixed;
+}
+footer{
+    
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    
+}
+.liga{
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+    height: 10vh;
+    margin-left: 45%;
+    font-family: sans-serif;
+    font-size: 35px;
+}
+h3{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: #fff;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+}
+.container2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+}
+.times{
+    display: flex;
+    flex-direction:row;
+    border: solid;
+    border-radius: 10px 20px;
+    background-color: #23232e;
+    margin: 5px;
+    margin-top: 10px;
+    width: 16vw;
+}
+
+.logos{
+    width: 5vw;
+    height: 10vh;
+    margin: 5px;
+    margin-top: 50px;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+}

@@ -11,6 +11,9 @@
     min-height: 92vh;
     /* background: #172031; */
     background-image: url(background-login.jpg);
+    background-size: auto;
+    background-attachment: fixed;
+    height: 100%;
 }
 .login{
     background: #172031;
