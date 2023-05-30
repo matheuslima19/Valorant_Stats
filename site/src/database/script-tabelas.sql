@@ -38,6 +38,11 @@ Regiao varchar(45)
 
 insert into Torneios values
 (null, 'VCT Americas', 'Americas');
+insert into Torneios values
+(null, 'VCT EMEA', 'Europa');
+insert into Torneios values
+(null, 'VCT PACIFIC', 'Asia/Oceania');
+
 
 create table Equipes(
 idEquipes int primary key auto_increment,
@@ -68,14 +73,35 @@ insert into Equipes values
 insert into Equipes values
 (null, 'KRU', '0','9','1');
 
+/* EUROPA   */
+insert into Equipes values
+(null, 'FNC', '9','0','2'),
+(null, 'NAVI','7','2','2'),
+(null, 'LIQUID','6','3','2'),
+(null, 'GIA','5','4','2'),
+(null, 'FUT','5','4','2');
+
+insert into Equipes values
+(null, 'VIT', '4','5','2'),
+(null, 'BBL','3','6','2'),
+(null, 'HER','2','7','2'),
+(null, 'KOI','2','7','2'),
+(null, 'KAR','2','7','2');
+
+insert into Equipes values
+(null, 'DRX', '8','1','3'),
+(null, 'PRX','7','2','3'),
+(null, 'T1','6','3','3'),
+(null, 'ZETA','5','4','3'),
+(null, 'TS','5','4','3'),
+(null, 'GENG','4','5','3'),
+(null, 'RRQ','4','5','3'),
+(null, 'GE','3','6','3'),
+(null, 'TALON','3','6','3'),
+(null, 'DFM','0','9','3');
 
 
 select*from Equipes where NomeEquipe = 'LOUD';
-
-
-
-
-
 
 create table Jogadores(
 idJogadores int,
@@ -89,7 +115,6 @@ constraint idJogadoresEquipes primary key (idJogadores, fkEquipes)
 );
 
 select * from usuario;
-
 
 
 /*

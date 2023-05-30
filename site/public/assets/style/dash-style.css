@@ -16,12 +16,14 @@ footer{
     width: 10vw;
     height: 10vh;
     margin-left: 45%;
+    margin-bottom: 5px;
     font-family: sans-serif;
     font-size: 35px;
 }
 h3{
     margin-top: 10px;
     margin-left: 5px;
+    margin-bottom: 16px;
     color: #fff;
 }
 .container{
@@ -33,6 +35,29 @@ h3{
     display: flex;
     flex-direction: row;
     margin-left: 7%;
+    margin-bottom: 5%;
+}
+.container3{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+}
+.container4{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+    margin-bottom: 5%;
+}
+.container5{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+}
+.container6{
+    display: flex;
+    flex-direction: row;
+    margin-left: 7%;
+    margin-bottom: 5%;
 }
 .times{
     display: flex;
@@ -41,7 +66,7 @@ h3{
     border-radius: 10px 20px;
     background-color: #23232e;
     margin: 5px;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 16vw;
 }
 
