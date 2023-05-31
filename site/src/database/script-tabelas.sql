@@ -53,25 +53,17 @@ fkTorneio int,
 constraint fkTorneioEquipes foreign key (fkTorneio) references Torneios(idTorneios)
 );
 insert into Equipes values
-(null, 'LOUD', '8','1','1');
-insert into Equipes values
-(null, 'FURIA', '4','5','1');
-insert into Equipes values
-(null, 'MIBR', '3','6','1');
-insert into Equipes values
-(null, 'NRG', '6','3','1');
-insert into Equipes values
-(null, 'SEN', '4','5','1');
-insert into Equipes values
-(null, 'C9', '8','1','1');
-insert into Equipes values
-(null, 'EG', '4','5','1');
-insert into Equipes values
-(null, '100T', '4','5','1');
-insert into Equipes values
-(null, 'Levi', '4','5','1');
-insert into Equipes values
+(null, 'LOUD', '8','1','1'),
+(null, 'FURIA', '4','5','1'),
+(null, 'MIBR', '3','6','1'),
+(null, 'NRG', '6','3','1'),
+(null, 'SEN', '4','5','1'),
+(null, 'C9', '8','1','1'),
+(null, 'EG', '4','5','1'),
+(null, '100T', '4','5','1'),
+(null, 'Levi', '4','5','1'),
 (null, 'KRU', '0','9','1');
+
 
 /* EUROPA   */
 insert into Equipes values
