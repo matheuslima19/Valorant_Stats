@@ -37,8 +37,11 @@ nav {
 
 main {
   height: 92vh;
+  width: 92vw;
   display: flex;
   flex-direction: row;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .nav-list {
@@ -67,6 +70,10 @@ footer{
   background-color: #23232e;
   text-align: center;
   /* margin-top:60px; */
+  bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
 }
 
 /* @media (max-width: 999px) {
@@ -126,16 +133,18 @@ footer{
 } */
 
 article{
-  margin: 50px;
+  margin: 1%;
 }
 aside{
-  margin: 50px;
+  margin: 1%;
 }
 #beggin{
   background-color: #23232e;
   border-radius: 30px;
   padding: 5px;
   border: solid;
+  width: 35vw;
+  height: 55vh;
 }
 h2{
   font-size: 60px;
@@ -160,6 +169,8 @@ p{
 #valorant{
   border-radius: 30px;
   border: solid;
+  width: 53vw;
+  height: 56vh;
 }
 
 #mid{
@@ -169,12 +180,16 @@ p{
   border: solid black;
   margin-left: 50px;
   margin-right: 50px;
+  width: 92vw;
+  height: 90vh;
+  margin-bottom: 3%;
 }
 
 #ranks{
   border-radius: 30px;
   margin-left: 270px;
-  width: 1100px;
+  width: 60vw;
+  height: 50vh;
 }
 
 #ligas{
@@ -184,13 +199,14 @@ p{
   border: solid black;
   margin-left: 50px;
   margin-right: 50px;
-  margin-top: 100px;
-  margin-bottom: 50px;
-  
+  width: 92vw;
+  height: 98vh;
+  margin-bottom: 10%;
 }
 
 #lock{
   border-radius: 30px;
   margin-left: 270px;
-  width: 1100px;
+  width: 60vw;
+  height: 50vh;
 }
