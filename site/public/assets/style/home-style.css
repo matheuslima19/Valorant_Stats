@@ -8,8 +8,9 @@
 }
 .bg_video{
   position: absolute;
+  top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; 
   min-width: 100%;
   min-height: 100%;
   z-index: -100;
@@ -53,13 +54,6 @@ header .navegation li a{
 }
 a:hover {
   opacity: 0.7;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  cursor: crosshair;
 }
     body {
       font-family: Arial, sans-serif;
@@ -125,6 +119,7 @@ a:hover {
     .hero-section h2 {
       font-size: 48px;
       margin-bottom: 20px;
+      color: #0084ff;
     }
 
     .hero-section p {
@@ -180,4 +175,20 @@ a:hover {
       margin: 0;
       font-size: 14px;
     }
-
+    :root {
+      --cor-negao-principal: #0084ff;
+    }
+    
+    webkit-scrollbar-track {
+      background-color: #f4f4f4;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 6px;
+      background: #2f2c2c;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #0084ff;
+    }
+    
