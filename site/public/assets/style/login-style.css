@@ -112,16 +112,20 @@ a:hover {
     transition: .5s;
     overflow: hidden;
 }
-footer{
-    background-color: #03e9f4;
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    /* margin-top:60px; */
     bottom: 0;
     position: fixed;
     width: 100%;
-    text-align: center;
-    
-}
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
 .btn:hover{
     background: #03e9f4;
     border-radius: 5px;

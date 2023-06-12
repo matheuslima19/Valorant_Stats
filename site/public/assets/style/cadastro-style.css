@@ -100,16 +100,20 @@ a:hover {
     color: #5b6b8b;
     float: right;
 }
-footer{
-    background-color: #03e9f4;
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    /* margin-top:60px; */
     bottom: 0;
     position: fixed;
     width: 100%;
-    text-align: center;
-    
-}
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
 .btn{
     position: relative;
     display: inline-block;

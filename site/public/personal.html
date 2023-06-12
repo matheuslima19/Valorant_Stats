@@ -102,12 +102,12 @@
         abates.push(kills);
         mortes.push(deaths);
         assistencias.push(assists);
-
+        for(var i = 0; i < kda; i++){
         if (kills < 0  || deaths < 0 || assists < 0) {
             alert(`Por favor preencha todos os campos !!!`);
             return false
         }
-
+        
         //Mapas defesa
         else if (kda < 0.70 && mapas.value == 'Ascent' || mapas.value == 'Split' || mapas.value == 'Pearl') {
             
@@ -151,7 +151,7 @@
             analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, você obteve uma ótima performance nesta partida, levando em
             consideração que ${mapas.value} é um mapa de defesa você conseguiu ficar com um KDA positivo, mas não se esqueça, o céu é o limite no VALORANT
             e sempre temos algo à evoluir !!!</p>
-            <img src="${sprays[2]}" style="width: 300px; height: 300px;"></img>
+            <img src="${sprays[3]}" style="width: 300px; height: 300px;"></img>
             <div>
             <canvas id="KDAChart"></canvas>
             </div>`
@@ -159,12 +159,12 @@
         }
 
         //Mapas ataque 
-        else if (kda < 0.70 && mapas.value == 'Bind' || mapas.value == 'Haven' || mapas.value == 'Fracture' || mapas.value == 'Lotus') {
+        else if (kda <0.70 && mapas.value == 'Bind' || mapas.value == 'Haven' || mapas.value == 'Fracture' || mapas.value == 'Lotus') {
 
             container.style.display = 'none';
             container2.style.display = 'flex';
             analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, em questão de performance você desempenhou muito abaixo
-            do esperado em um mapa que os ${funcoes.value} tem que desempenhar um papel mais "carry", talvez seja interessante treinar sua
+            do esperado em um mapa que o ${funcoes.value} tem que desempenhar um papel mais "carry", talvez seja interessante treinar sua
             mira e conhecimento tático no mapa ${mapas.value}.</p>
             <img src="${sprays[0]}" style="width: 300px; height: 300px;"></img>
             <div>
@@ -220,4 +220,5 @@
                 }
             });
     }
+}
 </script>
