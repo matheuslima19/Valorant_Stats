@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./assets/style/personal-style.css">
+    <title>Análise Pessoal</title>
+</head>
+
+<body>
+    <header>
+        <a href="./index.html"><img src="./assets/img/logotipo.png" alt="" class="logo"></a>
+        <nav class="navegation">
+            <ul>
+                <li><a href="./index.html">Sair</a></li>
+                <li><a href="./dashboard.html">Ligas VCT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="corpo">
+        <form class="cadastro" method="">
+            <h2>Faça uma análise de desempenho da sua última partida!</h2>
+            <div class="box-user">
+                <input type="text" id="iptKills" required>
+                <label>Informe a quantidade de kills:</label>
+            </div>
+            <div class="box-user">
+                <input type="text" id="iptDeaths" required>
+                <label>Informe a quantidade de mortes:</label>
+            </div>
+            <div class="box-user">
+                <input type="text" id="iptAssists" required>
+                <label>Informe a quantidade de assistências:</label>
+            </div>
+            <label for="posicoes">Informe sua função.</label>
+            <div class="select">
+                <select id="posicoes" name="posicoes" required>
+                    <option value="Duelista">Duelista</option>
+                    <option value="Controlador">Controlador</option>
+                    <option value="Iniciador">Iniciador</option>
+                    <option value="Sentinela">Sentinela</option>
+                </select>
+            </div>
+            <label for="mapas">Informe o mapa.</label>
+            <div class="select">
+                <select id="mapas" name="mapas">
+                    <option value="Ascent">Ascent</option>
+                    <option value="Bind">Bind</option>
+                    <option value="Fracture">Fracture</option>
+                    <option value="Haven">Haven</option>
+                    <option value="Lotus">Lotus</option>
+                    <option value="Pearl">Pearl</option>
+                    <option value="Split">Split</option>
+                </select>
+            </div>
+            <a class="btn" onclick="analisar()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                ANÁLISAR
+            </a>
+        </form>
+        <div id="analise" class="analise" style="display: none;">
+            
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <p>&copy; 2023 Valorant Stats. Todos os direitos reservados.</p>
+</footer>
+</html>
+
+
+
+<script>
+    var sprays = ['https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-my-eyes-spray.png',
+        'https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-this-is-also-also-fine-spray.png',
+        'https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-sharp-spray.gif',
+        'https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-embarrassing-spray.png']
+    var abates = [];
+    var mortes = [];
+    var assistencias = [];
+    
+    
+    var funcoes = document.querySelector('#posicoes')
+    var mapas = document.querySelector('#mapas')
+    var container = document.querySelector('.cadastro');
+    var container2 = document.querySelector('.analise');
+
+    function analisar() {
+        var kills = Number(iptKills.value);
+        var deaths = Number(iptDeaths.value);
+        var assists = Number(iptAssists.value);
+        var kda = (kills + assists) / deaths;
+        console.log(abates)
+        console.log(mortes)
+        console.log(assistencias)
+        abates.push(kills);
+        mortes.push(deaths);
+        assistencias.push(assists);
+
+        if (kills < 0  || deaths < 0 || assists < 0) {
+            alert(`Por favor preencha todos os campos !!!`);
+            return false
+        }
+
+        //Mapas defesa
+        else if (kda < 0.70 && mapas.value == 'Ascent' || mapas.value == 'Split' || mapas.value == 'Pearl') {
+            
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, para jogar com ${funcoes.value} é necessário
+            que o jogador tenha muita paciência em jogo e que tenha boa mira principalmente, recomendo que 
+            aqueça sua mira em mata-mata ou no modo The Range para melhorar sua performance dentro da partida.
+            Para adquirir melhores resultados e ajudar melhor a sua equipe na ${mapas.value} é ideal que a sua escolha 
+            por ${funcoes.value} seja por agentes que possuem entradas mais explosivas para que você possa surpreender
+            seus adversários e conquistar rounds importantes !!!</p>
+            <img src="${sprays[0]}" style="width: 300px; height: 300px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`;
+            
+        }
+        
+        else if(kda < 0.90 && mapas.value == 'Ascent' || mapas.value == 'Split' || mapas.value == 'Pearl'){
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, sua performance não foi tão ruim mas sempre
+            podemos melhorar em questão de desempenho individual, talvez você possa pensar o jogo de maneira mais "inteligente",
+            jogar com mais calma e buscar sempre a melhor alternativa para garantir os rounds.
+            Coordenar melhor as jogadas com a sua equipe é fundamental para ganhar uma partida no VALORANT, não se esqueça,
+            comunicação é o fator mais importante dentro de uma partida !!!</p>
+            <img src="${sprays[1]}" style="width: 400px; height: 400px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`;
+            
+        }
+
+        else if(kda > 1.00 && mapas.value == 'Ascent' || mapas.value == 'Split' || mapas.value == 'Pearl'){
+
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, você obteve uma ótima performance nesta partida, levando em
+            consideração que ${mapas.value} é um mapa de defesa você conseguiu ficar com um KDA positivo, mas não se esqueça, o céu é o limite no VALORANT
+            e sempre temos algo à evoluir !!!</p>
+            <img src="${sprays[2]}" style="width: 300px; height: 300px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`
+            
+        }
+
+        //Mapas ataque 
+        else if (kda < 0.70 && mapas.value == 'Bind' || mapas.value == 'Haven' || mapas.value == 'Fracture' || mapas.value == 'Lotus') {
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, em questão de performance você desempenhou muito abaixo
+            do esperado em um mapa que os ${funcoes.value} tem que desempenhar um papel mais "carry", talvez seja interessante treinar sua
+            mira e conhecimento tático no mapa ${mapas.value}.</p>
+            <img src="${sprays[0]}" style="width: 300px; height: 300px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`;
+            
+            
+        }
+        
+        else if(kda < 0.90 && mapas.value == 'Bind' || mapas.value == 'Haven' || mapas.value == 'Fracture' || mapas.value == 'Lotus'){
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, claramente possui pontos à serem melhorados, busque fazer aquecimentos de mira
+            e aprimoramentos de movimentação para trocas agressivas no jogo, ${mapas.value} é um mapa que os ${funcoes.value}s tem que buscar jogo.</p>
+            <img src="${sprays[1]}" style="width: 400px; height: 400px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`;
+            
+        }
+        
+        else if(kda > 1.00 && mapas.value == 'Bind' || mapas.value == 'Haven' || mapas.value == 'Fracture' || mapas.value == 'Lotus'){
+
+            container.style.display = 'none';
+            container2.style.display = 'flex';
+            analise.innerHTML = `<p>Sua relação KDA foi de <b>${kda.toFixed(2)}</b>, você mostra uma ótima confiança e preparo para ser o ${funcoes.value} do time, continue impondo
+            seu jogo e não pare de evoluir conceitos básicos do jogo.</p>
+            <img src="${sprays[2]}" style="width: 300px; height: 300px;"></img>
+            <div>
+            <canvas id="KDAChart"></canvas>
+            </div>`
+            
+        }
+
+
+        const kdaChart = document.getElementById('KDAChart');
+            new Chart(kdaChart, {
+                type: 'pie',
+                data: {
+                    labels: ['Kills', 'Deaths','Assists'],
+                    datasets: [{
+                        data: [abates[0], mortes[0], assistencias[0]],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    }
+</script>
